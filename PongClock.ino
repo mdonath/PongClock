@@ -3,7 +3,10 @@
 // Board: WEMOS LOLIN32
 // Flash Frequency: 80 MHz
 // 
-
+// Libraries:
+// - PubSubClient 2.8.0 by Nick O'Leary 
+// - Button 1.0.0 by Michael Adams
+// - LEDMatrixDriver 0.2.2 by Bartosz Bielawski
 
 #include <WiFi.h>
 #include <PubSubClient.h>

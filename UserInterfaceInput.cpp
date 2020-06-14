@@ -6,17 +6,15 @@
 #include "UserInterfaceInput.hpp"
 
 UserInterfaceInput::UserInterfaceInput():
-  buttonA(Button(pinButtonA, BUTTON_PULLUP)), // Setup button A (using button library)
-  buttonB(Button(pinButtonB, BUTTON_PULLUP)) // Setup button B (using button library)
+  buttonA(Button(pinButtonA)), // Setup button A (using button library)
+  buttonB(Button(pinButtonB)) // Setup button B (using button library)
 {
   // empty
 }
 
 void UserInterfaceInput::setup() {
-  pinMode(pinButtonA, INPUT_PULLUP);
-  pinMode(pinButtonB, INPUT_PULLUP);
-  digitalWrite(pinButtonA, HIGH);                 // turn on pullup resistor for button
-  digitalWrite(pinButtonB, HIGH);                 // turn on pullup resistor for button
+  buttonA.begin();
+  buttonB.begin();
 }
 
 bool UserInterfaceInput::isAnyButtonPressed() {
@@ -24,11 +22,11 @@ bool UserInterfaceInput::isAnyButtonPressed() {
 }
 
 bool UserInterfaceInput::isButtonAPressed() {
-  return buttonA.uniquePress();
+  return buttonA.pressed();
 }
 
 bool UserInterfaceInput::isButtonBPressed() {
-  return buttonB.uniquePress();
+  return buttonB.pressed();
 }
 
 #endif
